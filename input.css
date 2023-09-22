@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    @apply text-gray-300;
+  }
+}
+
+@layer components {
+  .custom-container {
+    @apply px-[1.2rem] w-full max-w-[1200px] my-0 mx-auto;
+  }
+  .half-white {
+    background: linear-gradient(to bottom, #fff, #fff 80px, transparent 80px);
+  }
+
+  @media (min-width: 770px) {
+    .half-white {
+      background: linear-gradient(to bottom, #fff, #fff 50px, transparent 50px);
+    }
+  }
+
+  .features-list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: hsl(180, 66%, 49%);
+    width: 0.5rem;
+    height: 100%;
+    @apply bigDesktop:w-full bigDesktop:h-[0.5rem] bigDesktop:top-[60%];
+  }
+
+  .input-error {
+    position: relative;
+  }
+
+  .input-error input {
+    box-shadow: inset 0 0 0 2px hsl(0, 87%, 67%);
+  }
+
+  .input-error input::placeholder {
+    color: hsla(0, 87%, 67%, 0.5);
+  }
+
+  .input-error::after {
+    content: "Please add a link";
+    color: hsla(0, 87%, 67%, 0.7);
+    font-style: italic;
+
+    font-size: 0.7rem;
+    display: inline-block;
+    position: absolute;
+    top: 66px;
+    left: 1.2rem;
+    @apply desktop:left-[2.4rem] desktop:text-[0.9rem] desktop:top-[76px];
+  }
+}
