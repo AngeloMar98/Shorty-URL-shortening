@@ -19,7 +19,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+
     <script src="script.js" defer></script>
+
     <title>Shortly URL shortening</title>
   </head>
   <body class="font-medium">
@@ -92,7 +94,7 @@
       >
         <div class="overflow-x-hidden mb-8 relative desktop:overflow-x-visible">
           <nav
-            class="nav-mobile absolute h-full w-[calc(100%-2.4rem)] text-center text-[#fff] text-[1rem] smallMobile:text-normal font-bold bg-darkViolet z-10 rounded-lg flex flex-col justify-between max-w-[460px] right-1/2 translate-x-1/2 desktop:hidden"
+            class="opacity-0 nav-mobile absolute h-full w-[calc(100%-2.4rem)] text-center text-[#fff] text-[1rem] smallMobile:text-normal font-bold bg-darkViolet z-10 rounded-lg flex flex-col justify-between max-w-[460px] right-1/2 translate-x-1/2 desktop:hidden transition-all duration-500"
           >
             <div class="my-auto p-[1.2rem]">
               <p class="pb-[1.2rem]">Features</p>
@@ -132,10 +134,10 @@
           </button>
         </div>
       </section>
-      <section class="bg-gray-0.3 half-white">
+      <section class="bg-gray-0.3 half-white" id="shrtLinks">
         <div class="custom-container max-w-[460px] desktop:max-w-[1200px]">
           <div
-            class="p-[1.2rem] desktop:p-[2.4rem] rounded-md bg-no-repeat bg-right-top bg-darkViolet bg-[url(images/bg-shorten-mobile.svg)] desktop:bg-[url(images/bg-shorten-desktop.svg)] input-error flex flex-col gap-[1.8rem] desktop:flex-row"
+            class="container__shorten-link p-[1.2rem] desktop:p-[2.4rem] rounded-md bg-no-repeat bg-right-top bg-darkViolet bg-[url(images/bg-shorten-mobile.svg)] desktop:bg-[url(images/bg-shorten-desktop.svg)] flex flex-col gap-[1.8rem] desktop:flex-row"
           >
             <input
               placeholder="Shorten a link here..."
@@ -149,21 +151,48 @@
             </button>
           </div>
           <div class="ul_shorten-link mt-[1.2rem] flex flex-col gap-[1.2rem]">
-            <div
+            <!-- <div
               class="li__shorten-link rounded-md bg-[#fff] desktop:flex desktop:flex-row desktop:p-[0.8rem]"
             >
-              <a
-                class="full-link block px-[1.2rem] py-[0.8rem] border-b-[1px] border-gray-0 desktop:border-none"
-                href="http"
-                >http</a
+              <div
+                class="flex flex-row gap-[0.6rem] items-center border-b-[1px] border-gray-0 desktop:border-none px-[1.2rem] py-[0.8rem]"
               >
+                <div
+                  class="btn__delete flex items-center justify-center border border-gray-0 rounded-full hover:cursor-pointer hover:bg-lightCyan hover:border-cyan w-[30px] h-[30px] transition-all duration-200 mt-[-2px]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[22px] text-gray-100 hover:text-gray-200"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="32"
+                      d="M368 368L144 144M368 144L144 368"
+                    />
+                  </svg>
+                </div>
+                <a
+                  class="full-link break-all"
+                  href="${link.fullLink}"
+                  target="_blank"
+                >
+                  ${link.fullLink}</a
+                >
+              </div>
+
               <div
                 class="desktop:flex desktop:flex-row items-center desktop:ml-auto"
               >
                 <a
                   class="shortened-link text-cyan block px-[1.2rem] py-[0.8rem]"
-                  href="http"
-                  >http</a
+                  href="${link.shortLink}"
+                  target="_blank"
+                >
+                  ${link.shortLink}</a
                 >
                 <button
                   class="btn__copy-link text-[#fff] text-base bg-cyan font-bold py-[0.6rem] mx-[1.2rem] mb-[0.8rem] rounded-md w-[calc(100%-2.4rem)] max-w-full text-center cursor-pointer desktop:w-[80px] desktop:m-0 transition-all duration-200 hover:opacity-60"
@@ -171,7 +200,7 @@
                   Copy
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -289,26 +318,66 @@
         <div class="mb-[1.6rem]">
           <p class="font-bold mb-[1rem] text-[#fff]">Features</p>
           <ul class="flex flex-col gap-[0.3rem] text-gray-100">
-            <li>Link Shortening</li>
-            <li>Branded Links</li>
-            <li>Analytics</li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Link Shortening
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Branded Links
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Analytics
+            </li>
           </ul>
         </div>
         <div class="mb-[1.6rem]">
           <p class="font-bold mb-[1rem] text-[#fff]">Resources</p>
           <ul class="flex flex-col gap-[0.3rem] text-gray-100">
-            <li>Blog</li>
-            <li>Developers</li>
-            <li>Support</li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Blog
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Developers
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Support
+            </li>
           </ul>
         </div>
         <div class="mb-[1.6rem]">
           <p class="font-bold mb-[1rem] text-[#fff]">Company</p>
           <ul class="flex flex-col gap-[0.3rem] text-gray-100">
-            <li>About</li>
-            <li>Our Team</li>
-            <li>Careers</li>
-            <li>Contact</li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              About
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Our Team
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Careers
+            </li>
+            <li
+              class="transition-all duration-200 hover:text-cyan hover:cursor-pointer"
+            >
+              Contact
+            </li>
           </ul>
         </div>
         <div
@@ -345,65 +414,5 @@
         </div>
       </div>
     </footer>
-    <!-- Features
-  Pricing
-  Resources
-
-  Login
-  Sign Up
-
-  More than just shorter links
-
-  Build your brand’s recognition and get detailed insights 
-  on how your links are performing.
-
-  Get Started
-  
-  Shorten a link here...
-
-  Shorten It!
-
-  Advanced Statistics
-
-  Track how your links are performing across the web with our 
-  advanced statistics dashboard.
-
-  Brand Recognition
-
-  Boost your brand recognition with each click. Generic links don’t 
-  mean a thing. Branded links help instil confidence in your content.
-
-  Detailed Records
-
-  Gain insights into who is clicking your links. Knowing when and where 
-  people engage with your content helps inform better decisions.
-
-  Fully Customizable
-
-  Improve brand awareness and content discoverability through customizable 
-  links, supercharging audience engagement.
-
-  Boost your links today
-
-  Get Started
-
-  Features
-
-  Link Shortening
-  Branded Links
-  Analytics
-
-  Resources
-
-  Blog
-  Developers
-  Support
-
-  Company
-
-  About
-  Our Team
-  Careers
-  Contact -->
   </body>
 </html>

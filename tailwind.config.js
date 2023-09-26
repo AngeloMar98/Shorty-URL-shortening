@@ -2,8 +2,13 @@
 module.exports = {
   content: ["*.{html,js,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        cyanShadow: "0 0 5px 5px hsla(180, 66%, 49%, 0.6)",
+      },
+    },
     colors: {
+      lightCyan: `hsla(180, 66%, 49%, 0.35)`,
       cyan: `hsl(180, 66%, 49%)`,
       darkViolet: `hsl(257, 27%, 26%)`,
       red: `hsl(0, 87%, 67%)`,
